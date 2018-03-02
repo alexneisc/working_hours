@@ -1,3 +1,7 @@
-hubstaff:
-  app_token: "your_app_token"
-  auth_token: "your_auth_token"
+#Required:
+app_token: "aaYMdsEW3077HvgylzBhbNd6eQbCJb1pADDCHXmQQ5Q"
+auth_token: "jxBGnoGrjMonSBt02-g32bwe5KSMYK-QLugP7Ozbgl0"
+start_date: "2018-02-01"
+
+#Optional:
+end_date: "2018-02-10" #Default: current date
