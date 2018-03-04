@@ -36,7 +36,7 @@ class Hubstaff
   end
 
   private def fetch_worked_seconds(start_date, end_date)
-    puts "Fetch work time for period between #{start_date.to_s("%Y-%m-%d")} and #{end_date.to_s("%Y-%m-%d")}"
+    puts "Fetch work time for period between #{start_date.to_s("%Y-%m-%d")} and #{end_date.to_s("%Y-%m-%d")}\n"
 
     uri = URI.parse("https://api.hubstaff.com/v1/custom/by_project/my?start_date=#{start_date.to_s("%Y-%m-%d")}&end_date=#{end_date.to_s("%Y-%m-%d")}")
     headers = HTTP::Headers {
@@ -47,7 +47,7 @@ class Hubstaff
     response = HTTP::Client.get(uri, headers)
 
     if response.status_code != 200
-      puts "http error"
+      puts "http error #{response.status_code}\n"
       exit
     end
 

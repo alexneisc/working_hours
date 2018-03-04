@@ -10,7 +10,7 @@ else
   "Sad. You have to work harder :("
 end
 
-puts "---------------"
+puts "---------------\n"
 
-puts message
-puts "time: #{sign}#{time}"
+puts "#{message}\n"
+puts "time: #{sign}#{time}\n"
