@@ -7,7 +7,7 @@ class WorkingHours
   def initialize
     should_worked_days = business_days_between
     @should_worked_seconds = should_worked_days * 6 * 60 * 60
-    @real_worked_seconds = Hubstaff.new.fetch_time
+    @real_worked_seconds = Hubstaff.new.call
   end
 
   def sign

@@ -10,5 +10,7 @@ else
   "Sad. You have to work harder :("
 end
 
+puts "---------------"
+
 puts message
 puts "time: #{sign}#{time}"
