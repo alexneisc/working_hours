@@ -5,14 +5,14 @@ require "./config.cr"
 class Hubstaff
   @config : Config::YamlObject
 
-  def initialize
+  def initialize(start_date : Time, end_date : Time)
     @config = Config.new.call
+    @start_date = start_date
+    @end_date = end_date
   end
 
   def call
-    start_date = Time.parse(@config.start_date, "%F")
-    end_date = Time.parse(@config.end_date, "%F")
-    split_into_periods(start_date, end_date)
+    split_into_periods(@start_date, @end_date)
   end
 
   private def split_into_periods(start_date, end_date)
