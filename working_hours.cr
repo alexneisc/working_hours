@@ -5,7 +5,7 @@ start_date = Time.parse(config.start_date, "%F")
 end_date = Time.parse(config.end_date, "%F")
 
 all_time_working_hours = WorkingHours.new(start_date, end_date)
-week_working_hours = WorkingHours.new(Time.now.at_beginning_of_week - 1.day, end_date)
+week_working_hours = WorkingHours.new(Time.now.at_beginning_of_week, end_date)
 today_working_hours = WorkingHours.new(Time.now.at_beginning_of_day, end_date)
 
 puts "---------------\n"
