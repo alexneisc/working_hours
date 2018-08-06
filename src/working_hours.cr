@@ -35,11 +35,10 @@ class WorkingHours
   end
 
   private def business_days_between(start_date, end_date, days_off)
-    config = Config.new.call
     business_days = 0
     date = end_date
     while date >= start_date
-      unless date.saturday? || date.sunday? || config.days_off.includes?(date)
+      unless date.saturday? || date.sunday? || days_off.includes?(date)
         business_days = business_days + 1
       end
 
