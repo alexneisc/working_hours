@@ -3,11 +3,12 @@ require "./src/working_hours.cr"
 config = Config.new.call
 start_date = Time.parse(config.start_date, "%F")
 end_date = Time.parse(config.end_date, "%F")
+days_off = config.days_off
 
-all_time_working_hours = WorkingHours.new(start_date, end_date)
-month_working_hours = WorkingHours.new(Time.now.at_beginning_of_month, end_date)
-week_working_hours = WorkingHours.new(Time.now.at_beginning_of_week, end_date)
-today_working_hours = WorkingHours.new(Time.now.at_beginning_of_day, end_date)
+all_time_working_hours = WorkingHours.new(start_date, end_date, days_off)
+month_working_hours = WorkingHours.new(Time.now.at_beginning_of_month, end_date, days_off)
+week_working_hours = WorkingHours.new(Time.now.at_beginning_of_week, end_date, days_off)
+today_working_hours = WorkingHours.new(Time.now.at_beginning_of_day, end_date, days_off)
 
 puts "---------------\n"
 puts "All time working hours:\n"
