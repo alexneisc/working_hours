@@ -10,10 +10,6 @@ class Config
         type: String,
         default: Time.now.to_s("%Y-%m-%d")
       },
-      days_off: {
-        type: Array(Time),
-        default: [] of Time,
-      },
     })
   end
 

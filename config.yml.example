@@ -5,6 +5,3 @@ start_date: "2018-02-01"
 
 #Optional:
 end_date: "2018-02-10" #Default: current date
-days_off:
-  - 2018-06-07
-  - 2018-06-08

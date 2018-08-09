@@ -4,8 +4,8 @@ class WorkingHours
   @should_worked_seconds : Int32
   @real_worked_seconds : Int32
 
-  def initialize(start_date : Time, end_date : Time, days_off : Array(Time))
-    should_worked_days = business_days_between(start_date, end_date, days_off)
+  def initialize(start_date : Time, end_date : Time)
+    should_worked_days = business_days_between(start_date, end_date)
     @should_worked_seconds = should_worked_days * 6 * 60 * 60
     @real_worked_seconds = Hubstaff.new(start_date, end_date).call
   end
@@ -34,15 +34,11 @@ class WorkingHours
     end
   end
 
-  private def business_days_between(start_date, end_date, days_off)
-    config = Config.new.call
+  private def business_days_between(start_date, end_date)
     business_days = 0
     date = end_date
     while date >= start_date
-      unless date.saturday? || date.sunday? || config.days_off.includes?(date)
-        business_days = business_days + 1
-      end
-
+      business_days = business_days + 1 unless date.saturday? || date.sunday?
       date = date - 1.day
     end
     business_days
