@@ -1,8 +1,8 @@
 require "./src/working_hours.cr"
 
 config = Config.new.call
-start_date = config.start_date
-end_date = config.end_date
+start_date = Time.parse(config.start_date, "%F")
+end_date = Time.parse(config.end_date, "%F")
 days_off = config.days_off
 
 all_time_working_hours = WorkingHours.new(start_date, end_date, days_off)

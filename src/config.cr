@@ -5,10 +5,10 @@ class Config
     YAML.mapping({
       app_token: String,
       auth_token: String,
-      start_date: Time,
+      start_date: String,
       end_date: {
-        type: Time,
-        default: Time.now
+        type: String,
+        default: Time.now.to_s("%Y-%m-%d")
       },
       days_off: {
         type: Array(Time),
